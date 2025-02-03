@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+    --font-primary: "Space Grotesk" , "serif";
+    --color-primary : #05df72;
+    --color-secondary : #62748e;
+}
+
+

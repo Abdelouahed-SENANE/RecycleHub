@@ -1,0 +1,57 @@
+<form class="my-4 w-[390px]" [formGroup]="loginForm">
+    <div class="my-4 ">
+      <div class="form_control w-full text-gray-300 relative">
+        <span class="absolute top-[50%] translate-y-[-50%] left-4">
+          <i class="bi bi-envelope-at"></i>
+        </span>
+        <input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          [ngClass]="{'border-rose-500 focus:text-rose-500 focus:border-rose-500 ': loginForm.get('email')?.invalid && loginForm.get('email')?.touched, 'border-gray-300': !loginForm.get('email')?.invalid || !loginForm.get('email')?.touched}"
+          class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+        />
+      </div>
+      <app-fields-error-message
+        [label]="'Email'"
+        [control]="loginForm.get('email')"
+      ></app-fields-error-message>
+    </div>
+    <div class="my-4 ">
+      <div class="form_control w-full text-gray-300 relative">
+        <span class="absolute top-[50%] translate-y-[-50%] left-4">
+          <i class="bi bi-shield-lock"></i>
+        </span>
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          [ngClass]="{'border-rose-500 focus:text-red-500 focus:border-red-500 ': loginForm.get('password')?.invalid && loginForm.get('password')?.touched, 'border-gray-300': !loginForm.get('password')?.invalid || !loginForm.get('password')?.touched}"
+          class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+        />
+      </div>
+      <app-fields-error-message
+        [label]="'Password'"
+        [control]="loginForm.get('password')"
+      ></app-fields-error-message>
+    </div>
+    <div class="form_control w-full text-gray-300 my-4 relative">
+
+    </div>
+    <div class="my-4">
+      <button
+        (click)="onSubmit()"
+        type="button"
+        class="w-full bg-primary cursor-pointer text-white py-2 rounded-full font-semibold"
+      >
+        Log In
+      </button>
+    </div>
+
+    <div class="text-center">
+      <span class="text-gray-500">Don't have account ? </span>
+      <a [routerLink]="['/auth/register']" class="text-primary font-bold">
+        Sign Up Now
+      </a>
+    </div>
+  </form>
