@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-header',
   imports: [NavbarComponent ],
   template: `
-  <header class="shadow shadow-slate-100 h-14 flex items-center">
+  <header class="shadow  shadow-slate-100 h-14 flex items-center">
       <app-nav></app-nav>
   </header>
   `,
