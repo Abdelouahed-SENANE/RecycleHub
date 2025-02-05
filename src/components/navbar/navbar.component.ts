@@ -14,6 +14,7 @@ import { LogoComponent } from '../logo/logo.component';
             [routerLink]="['/']"
             class="px-3 rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
+            [routerLinkActiveOptions]="{exact : true}"
             >Home</a
           >
         </li>
@@ -22,6 +23,7 @@ import { LogoComponent } from '../logo/logo.component';
             [routerLink]="['/resquets']"
             class="px-3 rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
+            [routerLinkActiveOptions]="{exact : true}"
             >Requests</a
           >
         </li>
@@ -30,6 +32,7 @@ import { LogoComponent } from '../logo/logo.component';
             [routerLink]="['/about']"
             class="px-3 rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
+            [routerLinkActiveOptions]="{exact : true}"
             >About</a
           >
         </li>
@@ -38,6 +41,7 @@ import { LogoComponent } from '../logo/logo.component';
             [routerLink]="['/contact-us']"
             class="px-3 rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
+            [routerLinkActiveOptions]="{exact : true}"
             >Contact us</a
           >
         </li>
@@ -48,6 +52,7 @@ import { LogoComponent } from '../logo/logo.component';
             class="px-3  bg-primary  text-primary font-bold py-1"
             routerLinkActive="bg-primary text-gray-50"
             routerLink="auth/login"
+            [routerLinkActiveOptions]="{exact : true}"
             >Log In</a
           >
         </button>
@@ -56,6 +61,7 @@ import { LogoComponent } from '../logo/logo.component';
             class="px-3 bg-primary block hover:text-primary  rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
             [routerLink]="['auth/register']"
+            [routerLinkActiveOptions]="{exact : true}"
             >Get Started</a
           >
         </button>
