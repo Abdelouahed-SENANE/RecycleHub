@@ -1,0 +1,158 @@
+@if (vm$ | async; as vm) {
+  <form
+  class="my-4 w-[390px]"
+  [formGroup]="registerForm"
+  (ngSubmit)="registerForm.valid && onSubmit()"
+>
+@if (this.errorMsg) {
+  <div class="text-rose-500  bg-rose-100 p-2 rounded-md">
+    <i class="bi bi-info-circle text-lg"></i>
+    <span class="px-2">{{errorMsg}}</span>
+  </div>
+}
+
+
+  <div class="my-4">
+    <div class="form_control w-full text-gray-300 relative">
+      <span class="absolute top-[50%] translate-y-[-50%] left-4">
+        <i class="bi bi-person text-xl"></i>
+      </span>
+      <input
+        type="fullname"
+        placeholder="Fullname"
+        formControlName="fullname"
+        [ngClass]="{
+          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+            registerForm.get('fullname')?.invalid &&
+            registerForm.get('fullname')?.touched,
+          'border-gray-300':
+            !registerForm.get('fullname')?.invalid ||
+            !registerForm.get('fullname')?.touched
+        }"
+        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+      />
+    </div>
+    <app-fields-error-message
+      [label]="'Fullname'"
+      [control]="registerForm.get('fullname')"
+    ></app-fields-error-message>
+  </div>
+  <div class="my-4">
+    <div class="form_control w-full text-gray-300 relative">
+      <span class="absolute top-[50%] translate-y-[-50%] left-4">
+        <i class="bi bi-geo-alt"></i>
+      </span>
+      <input
+        type="address"
+        placeholder="Address"
+        formControlName="address"
+        [ngClass]="{
+          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+            registerForm.get('address')?.invalid &&
+            registerForm.get('address')?.touched,
+          'border-gray-300':
+            !registerForm.get('address')?.invalid ||
+            !registerForm.get('address')?.touched
+        }"
+        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+      />
+    </div>
+    <app-fields-error-message
+      [label]="'Address'"
+      [control]="registerForm.get('address')"
+    ></app-fields-error-message>
+  </div>
+  <div class="my-4">
+    <div class="form_control w-full text-gray-300 relative">
+      <span class="absolute top-[50%] translate-y-[-50%] left-4">
+        <i class="bi bi-calendar2-day"></i>
+      </span>
+      <input
+        type="date"
+        placeholder="Birthday"
+        formControlName="birthday"
+        [ngClass]="{
+          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+            registerForm.get('birthday')?.invalid &&
+            registerForm.get('birthday')?.touched,
+          'border-gray-300':
+            !registerForm.get('birthday')?.invalid ||
+            !registerForm.get('birthday')?.touched
+        }"
+        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+      />
+    </div>
+    <app-fields-error-message
+      [label]="'Birthday'"
+      [control]="registerForm.get('birthday')"
+    ></app-fields-error-message>
+  </div>
+  <div class="my-4">
+    <div class="form_control w-full text-gray-300 relative">
+      <span class="absolute top-[50%] translate-y-[-50%] left-4">
+        <i class="bi bi-envelope-at"></i>
+      </span>
+      <input
+        type="email"
+        placeholder="Email"
+        formControlName="email"
+        [ngClass]="{
+          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+            registerForm.get('email')?.invalid &&
+            registerForm.get('email')?.touched,
+          'border-gray-300':
+            !registerForm.get('email')?.invalid ||
+            !registerForm.get('email')?.touched
+        }"
+        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+      />
+    </div>
+    <app-fields-error-message
+      [label]="'Email'"
+      [control]="registerForm.get('email')"
+    ></app-fields-error-message>
+  </div>
+  <div class="my-4">
+    <div class="form_control w-full text-gray-300 relative">
+      <span class="absolute top-[50%] translate-y-[-50%] left-4">
+        <i class="bi bi-shield-lock"></i>
+      </span>
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        [ngClass]="{
+          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+            registerForm.get('password')?.invalid &&
+            registerForm.get('password')?.touched,
+          'border-gray-300':
+            !registerForm.get('password')?.invalid ||
+            !registerForm.get('password')?.touched
+        }"
+        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+      />
+    </div>
+    <app-fields-error-message
+      [label]="'Password'"
+      [control]="registerForm.get('password')"
+    ></app-fields-error-message>
+  </div>
+
+  <div class="my-4">
+    <button
+      type="submit"
+      [disabled]="vm.isLoading"
+      class="w-full cursor-pointer disabled:bg-secondary bg-primary text-white py-2 rounded-full font-semibold"
+    >
+      Register
+    </button>
+  </div>
+  <div class="text-center">
+    <span class="text-gray-500">Already have account ? </span>
+    <a [routerLink]="['/auth/login']" class="text-primary font-bold">
+      Sign In Now
+    </a>
+  </div>
+</form>
+
+}
