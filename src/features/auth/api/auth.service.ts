@@ -25,7 +25,6 @@ export class AuthService {
         if (user.password === credentiels.password) {
           return {success : true , user}
         }else {
-          console.log("user password" + user.password + "credentiels pass" + credentiels.password);
           console.log({success : false , message : "Invalid credentiels."});
           return {success : false , message : "Invalid credentiels."}
         }

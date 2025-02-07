@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ContentLayoutComponent } from '../layouts/content-layout/content-layout.component';
+import { authGuard, noAuthGuard } from '../features/auth/guards';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -13,6 +14,7 @@ export const routes: Routes = [
           import('./routes/public/home/home.component').then(
             (c) => c.HomeComponent
           ),
+          data : {linksColor : 'text-white'}
       },
       {
         path: 'about',
@@ -20,6 +22,8 @@ export const routes: Routes = [
           import('./routes/public/about/about.component').then(
             (c) => c.AboutComponent
           ),
+          data : {linksColor : 'text-gray-800'}
+
       },
       {
         path: 'contact-us',
@@ -27,13 +31,35 @@ export const routes: Routes = [
           import('./routes/public/contact-us/contact-us.component').then(
             (c) => c.ContactUsComponent
           ),
+          data : {linksColor : 'text-gray-800'}
       },
     ],
   },
   {
     path: '',
+    canActivate: [noAuthGuard],
     loadChildren: () =>
       import('./routes/auth/auth.routes').then((r) => r.routes),
   },
-  { path: '**', redirectTo: '' } 
+  {
+    path: 'app',
+    canActivate: [],
+    children: [
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import('./routes/app/profile/profile.component').then(
+            (c) => c.ProfileComponent
+          ),
+      },
+      {
+        path: 'users',
+        loadComponent: () =>
+          import('./routes/app/profile/profile.component').then(
+            (c) => c.ProfileComponent
+          ),
+      },
+    ],
+  },
+  { path: '**', redirectTo: '' },
 ];

@@ -1,0 +1,49 @@
+@if (vm$ | async; as vm) {
+    <div>
+        <header class="shadow shadow-sky-50 py-2">
+            <nav class="flex items-center container mx-auto justify-between ">
+                <h4 class="text-xl">Account Details</h4>
+                <div class="relative">
+                    <button
+                      (click)="onToggle()"
+                      class="text-sm  flex items-center text-gray-600  text-gray7-700 rounded-full cursor-pointer h-10"
+                    >
+                      <i class="bi bi-person-circle text-3xl"></i>
+                    </button>
+            
+                    <div
+                      [ngClass]="{
+                        'opacity-0 invisible z-50  translate-y-2': isOpen,
+                        'opacity-1 visible z-50  translate-y-0': isOpen
+                      }"
+                      class="absolute top-[100%] right-0 ease-in duration-300  shadow-[4px_3px_21px_5px_rgba(153,_193,_241,_0.2)] w-48  bg-white rounded-lg "
+                    >
+                      <ul>
+                        <li>
+                          <a
+                            routerLink="app/profile"
+                            class="px-4 py-2 w flex items-center text-gray-600 gap-2 hover:bg-gray-100 ease-linear duration-300 cursor-pointer "
+                          >
+                            <span><i class="bi bi-person-fill-gear text-2xl"></i></span>
+                            <span>Profile</span>
+                          </a>
+                        </li>
+                        <li>
+                          <button
+                            type="button"
+                            (click)="onLoggedOut()"
+                            class="px-4 py-2 w-full flex items-center text-gray-600 gap-2 ease-linear duration-300 hover:bg-gray-100 cursor-pointer "
+                          >
+                            <span><i class="bi bi-box-arrow-left text-xl"></i></span>
+                            <span>Logout</span>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+            </nav>
+        </header>
+        <app-update-profile></app-update-profile>
+    </div>
+    
+}

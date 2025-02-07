@@ -22,5 +22,7 @@ export const LoginActions = createActionGroup({
   },
 });
 
+export const UpdateAuthUserAction = createAction("[Auth] Update State After User Update His Profile." , props<{user : User}>())
+
 // Logout Actions
 export const LogoutAction = createAction('Auth: Logout')

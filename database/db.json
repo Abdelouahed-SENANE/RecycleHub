@@ -2,12 +2,11 @@
   "users": [
     {
       "id": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
-      "fullname": "Ahmed FOUDI",
+      "fullname": "Ahmed SENANE",
       "address": "16, Rue ennacer , JEMAA SHAIM",
       "birthday": "2000-02-12",
       "email": "foudi@collector.fr",
-      "password": "password",
-      "role": "INDIVIDUAL"
+      "password": "password"
     }
   ]
 }

@@ -10,7 +10,6 @@ import { LogoComponent } from '../logo/logo.component';
 import { AuthFacade } from '../../features/auth/store/auth.facade';
 import { combineLatest } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { getFirstChars } from '../../utils/utils';
 
 @Component({
   selector: 'app-nav',
@@ -18,7 +17,7 @@ import { getFirstChars } from '../../utils/utils';
   template: `
     @if (vm$ | async; as vm) {
     <nav
-      class="p-2 container mx-auto bg-white flex items-center justify-between w-full"
+      class="p-2 container z-50 mx-auto bg-white flex items-center justify-between w-full"
     >
       <app-logo></app-logo>
       <ul class="flex items-center">
@@ -71,17 +70,16 @@ import { getFirstChars } from '../../utils/utils';
         </button>
 
         <div
-          #dropdown
           [ngClass]="{
-            'opacity-0 invisible translate-y-2': isOpen,
-            'opacity-1 visible translate-y-0': isOpen
+            'opacity-0 invisible z-50  translate-y-2': isOpen,
+            'opacity-1 visible z-50  translate-y-0': isOpen
           }"
-          class="absolute top-[100%] right-0 ease-in duration-300  shadow-[4px_3px_21px_5px_rgba(153,_193,_241,_0.2)] w-48 z-50 bg-white rounded-lg min-w-[200px]"
+          class="absolute top-[100%] right-0 ease-in duration-300  shadow-[4px_3px_21px_5px_rgba(153,_193,_241,_0.2)] w-48  bg-white rounded-lg "
         >
           <ul>
             <li>
               <a
-                routerLink="/users/profile"
+                routerLink="app/profile"
                 class="px-4 py-2 w flex items-center text-gray-600 gap-2 hover:bg-gray-100 ease-linear duration-300 cursor-pointer "
               >
                 <span><i class="bi bi-person-fill-gear text-2xl"></i></span>
@@ -134,7 +132,7 @@ import { getFirstChars } from '../../utils/utils';
 })
 export class NavbarComponent {
   private readonly authFacade: AuthFacade = inject(AuthFacade);
-  isOpen: boolean = false;
+  isOpen: boolean = true;
   readonly vm$ = combineLatest({
     isLoggedIn: this.authFacade.isLoggedIn$,
     currentUser: this.authFacade.authUser$,

@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { UserState } from '../../users/store/user.state';
-import { LoginActions, LogoutAction, RegisterActions } from './auth.actions';
+import { LoginActions, LogoutAction, RegisterActions, UpdateAuthUserAction } from './auth.actions';
 import { AuthState } from './auth.state';
 
 export const AUTH_FEATURE_KEY = 'auth';
@@ -79,6 +79,14 @@ export const authReducer = createReducer(
     LogoutAction,
     (): AuthState => ({
       ...initialState
+    })
+  ),
+  // On Update AuthUser State after user update his profile.
+  on(
+    UpdateAuthUserAction,
+    (state , {user}): AuthState => ({
+      ...state,
+      authUser : user
     })
   )
 
