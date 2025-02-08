@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FieldErrorMessage } from '../../../../components/errors/field-error-message/field-error.component';
-import { AuthRequest } from '../../../../models/auth.model';
+import { AuthRequest } from '../../../../models';
 import { ButtonComponent } from '../../../../components/ui/button/button.component';
 import { AuthFacade } from '../../store/auth.facade';
 import { combineLatest } from 'rxjs';

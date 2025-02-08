@@ -2,11 +2,67 @@
   "users": [
     {
       "id": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
-      "fullname": "Ahmed SENANE",
+      "fullname": "Ahmed FOUDI",
       "address": "16, Rue ennacer , JEMAA SHAIM",
       "birthday": "2000-02-12",
-      "email": "foudi@collector.fr",
-      "password": "password"
+      "email": "foudi@individual.fr",
+      "password": "password",
+      "role": "INDIVIDUAL"
+    },
+    {
+      "id": "bd57c475-5189-4c17-bc3f-9cbefefa4312",
+      "fullname": "Abdelouahed SENANE",
+      "address": "16, Rue ennacer , JEMAA SHAIM",
+      "birthday": "1996-02-26",
+      "email": "senane@collector.fr",
+      "password": "password",
+      "role": "COLLECTOR"
+    },
+    {
+      "id": "54e24167-9f87-4468-ba5e-2028c5849bcd",
+      "fullname": "Voluptates dolore mo",
+      "address": "Aut est commodi sit ",
+      "birthday": "1981-01-06",
+      "email": "tame@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "role": "INDIVIDUAL"
+    },
+    {
+      "id": "4a8f2710-716c-43d7-93d6-f7ebf1fd6ec4",
+      "fullname": "A earum ea omnis ut ",
+      "address": "Blanditiis quidem vo",
+      "birthday": "2013-06-01",
+      "email": "kagoxijyc@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "role": "INDIVIDUAL"
+    },
+    {
+      "id": "e620bffd-e381-480c-b509-47e95a55d9bb",
+      "fullname": "Consequatur aut do ",
+      "address": "19, Rue Hassan II,SAFI",
+      "birthday": "1976-03-21",
+      "email": "tated@mailinator.com",
+      "password": "Pa$$w0rd!",
+      "role": "INDIVIDUAL"
+    }
+  ],
+  "collections": [
+    {
+      "id": "b2b5",
+      "wasteType": "GLASS",
+      "address": "19,SAFI",
+      "estimatedWeight": "10000",
+      "dateTime": "2024-02-24T09:00:00.000Z",
+      "collectorId": null
+    },
+    {
+      "id": "466ceca0-97a1-4039-8841-c5a838a8dbc7",
+      "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
+      "wasteType": "PLASTIC",
+      "address": "19,SAFI",
+      "estimatedWeight": "19944",
+      "dateTime": "2024-02-02T12:00:00.000Z",
+      "collectorId": null
     }
   ]
 }

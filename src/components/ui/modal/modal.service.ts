@@ -5,7 +5,7 @@ import { ModalConfig } from './modal.config';
   providedIn: 'root',
 })
 export class ModalService {
-  _isOpen = true;
+  _isOpen = false;
   _config = new ModalConfig();
 
   get isOpen(): boolean {
@@ -19,14 +19,13 @@ export class ModalService {
   constructor() {}
 
   open(config: ModalConfig) {
-    console.log('Open modal...');
-    this._isOpen = true; 
     this._config = { ...this._config, ...config };
+    this._isOpen = true; 
   }
 
   close(): void {
-    console.log('Closing modal...');
-    this._isOpen = false; 
     this._config = new ModalConfig(); 
+    this._isOpen = false; 
+
   }
 }

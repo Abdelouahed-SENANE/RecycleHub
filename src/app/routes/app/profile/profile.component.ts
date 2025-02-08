@@ -3,12 +3,11 @@ import { Component, inject, ViewChild } from '@angular/core';
 import { AuthFacade } from '../../../../features/auth/store/auth.facade';
 import { combineLatest } from 'rxjs';
 import { UpdateProfileComponent } from '../../../../features/users/components/update-profile.component';
-import { ModalComponent } from '../../../../components/ui/modal/modal.component';
-import { DeleteUserComponent } from '../../../../features/users/components/delete-user.component';
+
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, UpdateProfileComponent, DeleteUserComponent],
+  imports: [CommonModule, UpdateProfileComponent],
   templateUrl: './profile.component.html',
 })
 export class ProfileComponent {

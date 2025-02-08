@@ -9,7 +9,9 @@ import { UserEffects } from '../features/users/store/user.effects';
 import { AuthEffects } from '../features/auth/store/auth.effects';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { CollectionEffects } from '../features/collections/store/collection.effects';
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideStore(reducers), provideEffects([UserEffects, AuthEffects]), provideHttpClient(), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
+  providers:  [provideNativeDateAdapter() ,provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideStore(reducers), provideEffects([UserEffects, AuthEffects , CollectionEffects]), provideHttpClient(), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })]
+  
 };

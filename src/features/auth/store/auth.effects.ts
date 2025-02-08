@@ -2,10 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { AuthService } from '../api/auth.service';
-import { LoginActions, LogoutAction, RegisterActions, UpdateAuthUserAction } from './auth.actions';
+import {
+  LoginActions,
+  LogoutAction,
+  RegisterActions,
+  UpdateAuthUserAction,
+} from './auth.actions';
 import { catchError, exhaustMap, map, of } from 'rxjs';
-import { User } from '../../../models/user.model';
-import { AuthRequest } from '../../../models/auth.model';
+
 
 @Injectable()
 export class AuthEffects {
@@ -77,8 +81,6 @@ export class AuthEffects {
       ),
     { dispatch: false }
   );
-
-
 
   readonly logout$ = createEffect(
     () =>

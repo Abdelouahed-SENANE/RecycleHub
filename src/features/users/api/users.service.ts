@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, of, throwError } from 'rxjs';
-import { User } from '../../../models/user.model';
-import { LocalStorageService } from '../../../core/local-storage.service';
+import { catchError, map, Observable, of } from 'rxjs';
+import { User } from '../../../models/models';
 import { HttpClient } from '@angular/common/http';
 import { environnemt as env } from '../../../environments/environment';
 

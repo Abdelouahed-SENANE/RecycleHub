@@ -1,14 +1,19 @@
-import { createAction, createActionGroup, emptyProps, props } from '@ngrx/store';
-import { AuthRequest } from '../../../models/auth.model';
-import { User } from '../../../models/user.model';
+import {
+  createAction,
+  createActionGroup,
+  emptyProps,
+  props,
+} from '@ngrx/store';
+import { AuthRequest } from '../../../models';
+import { User } from '../../../models/models';
 
 // Register Actions
 export const RegisterActions = createActionGroup({
   source: 'Auth: Register',
   events: {
-    request: props<{user : User}>(),
-    success: props<{success : String}>(),
-    failure: props<{err : String}>(),
+    request: props<{ user: User }>(),
+    success: props<{ success: String }>(),
+    failure: props<{ err: String }>(),
   },
 });
 
@@ -16,13 +21,16 @@ export const RegisterActions = createActionGroup({
 export const LoginActions = createActionGroup({
   source: 'Auth: Login',
   events: {
-    request: props<{credentiels : AuthRequest}>(),
-    success: props<{authUser : User}>(),
-    failure: props<{ error : string}>(),
+    request: props<{ credentiels: AuthRequest }>(),
+    success: props<{ authUser: User }>(),
+    failure: props<{ error: string }>(),
   },
 });
 
-export const UpdateAuthUserAction = createAction("[Auth] Update State After User Update His Profile." , props<{user : User}>())
+export const UpdateAuthUserAction = createAction(
+  '[Auth] Update State After User Update His Profile.',
+  props<{ user: User }>()
+);
 
 // Logout Actions
-export const LogoutAction = createAction('Auth: Logout')
+export const LogoutAction = createAction('Auth: Logout');

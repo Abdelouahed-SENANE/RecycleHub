@@ -1,12 +1,8 @@
 import {
   Component,
-  ElementRef,
-  EventEmitter,
-  Input,
+  
   OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
+
 } from '@angular/core';
 import { ModalService } from './modal.service';
 import { CommonModule } from '@angular/common';
@@ -24,7 +20,7 @@ import { ModalConfig } from './modal.config';
       class="fixed  inset-0"
     >
       <div
-        (click)="discard($event)"
+        (click)="onDiscard()"
         class="absolute w-full h-full z-10 bg-slate-800/60"
       ></div>
       <div class="w-full h-full flex  items-center justify-center">
@@ -35,7 +31,7 @@ import { ModalConfig } from './modal.config';
             <h1 class="text-lg font-medium text-gray-700">
               {{ config.title }}
             </h1>
-            <button (click)="discard($event)">
+            <button (click)="onDiscard()">
               <i class="bi bi-x-lg text-md cursor-pointer text-gray-700"></i>
             </button>
           </div>
@@ -45,14 +41,14 @@ import { ModalConfig } from './modal.config';
           <div class="flex justify-end gap-2">
             <button
               type="button"
-              (click)="discard($event)"
+              (click)="onDiscard()"
               class="border cursor-pointer border-gray-200 px-4 py-2 rounded-lg"
             >
               Cancel
             </button>
             <button
               type="button"
-              (click)="confirm($event)"
+              (click)="onConfirm()"
               class="bg-rose-600 cursor-pointer text-white border-gray-200 px-4 py-2 rounded-lg"
             >
               Confirm
@@ -64,14 +60,10 @@ import { ModalConfig } from './modal.config';
   `,
   host: {
     class: 'relative',
-    // '(document:click)': 'onClickOutside($event)', // Click outside listener
   },
 })
 export class ModalComponent implements OnInit {
-  // Accessing the modal state directly from the service
   get open(): boolean {
-    console.log(this.modalService.isOpen);
-
     return this.modalService.isOpen;
   }
 
@@ -79,31 +71,21 @@ export class ModalComponent implements OnInit {
     return this.modalService.config;
   }
 
-  constructor(private modalService: ModalService, private elRef: ElementRef) {}
+  constructor(private modalService: ModalService,) {}
 
   ngOnInit(): void {}
 
-  discard(event: Event) {
-    this.modalService.close();
-    setTimeout(() => {}, 0); // **Triggers Angular change detection**
+  onDiscard() {
     if (this.config.discard) {
-      this.config.discard(event);
+      this.config.discard();
     }
-  }
-
-  // onClickOutside(event: MouseEvent): void {
-  //   if (!this.elRef.nativeElement.contains(event.target)) {
-  //     this.discard(event);
-  //   }
-  // }
-
-  confirm(event: Event) {
     this.modalService.close();
-    // setTimeout(() => {}, 0); // **Triggers Angular change detection**
+  }
+  
+  onConfirm() {
     if (this.config.confirm) {
-      console.log(event);
-      
-      this.config.confirm(event);
+      this.config.confirm();
     }
+    this.modalService.close();
   }
 }

@@ -1,20 +1,14 @@
 import { createReducer, on } from '@ngrx/store';
 import { UserState } from '../../users/store/user.state';
 import { LoginActions, LogoutAction, RegisterActions, UpdateAuthUserAction } from './auth.actions';
-import { AuthState } from './auth.state';
+import { AuthState, initialState } from './auth.state';
 
 export const AUTH_FEATURE_KEY = 'auth';
 export interface AuthPartialState {
   readonly [AUTH_FEATURE_KEY]: UserState;
 }
 
-export const initialState: AuthState = {
-  isLoading: false,
-  error: '',
-  hasError: false,
-  authUser: undefined,
-  isLoggedIn: false,
-};
+
 
 export const authReducer = createReducer(
   initialState,

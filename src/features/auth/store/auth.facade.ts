@@ -1,9 +1,9 @@
 import { inject, Injectable } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as AuthSelectors from "./auth.selectors"
-import { User } from "../../../models/user.model";
+import { User } from "../../../models/models";
 import { LoginActions, LogoutAction, RegisterActions } from "../../auth/store/auth.actions";
-import { AuthRequest } from "../../../models/auth.model";
+import { AuthRequest } from '../../../models';
 
 
 

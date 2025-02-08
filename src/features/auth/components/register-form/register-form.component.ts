@@ -8,11 +8,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { FieldErrorMessage } from '../../../../components/errors/field-error-message/field-error.component';
-import { User } from '../../../../models/user.model';
-import { combineLatest, filter, take } from 'rxjs';
-import { RoleType } from '../../../../utils/enums/role-type';
+import { User } from '../../../../models/models';
+import { combineLatest } from 'rxjs';
+import { RoleType } from '../../../../utils/constants';
 import { AuthFacade } from '../../store/auth.facade';
-import { UserFacade } from '../../../users/store/user.facade';
 import { UserService } from '../../../users/api/users.service';
 import { generateUUID } from '../../../../utils/utils';
 
@@ -38,7 +37,13 @@ export class RegisterFormComponent {
           Validators.maxLength(50),
         ],
       ],
-      address: ['', [Validators.required, Validators.minLength(5)]],
+      address: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/^\d+\s*,\s*[a-zA-Z\s]+(,\s*[a-zA-Z\s]+)?$/),
+        ],
+      ],
       birthday: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -50,7 +55,6 @@ export class RegisterFormComponent {
     hasError: this.authFacade.hasError$,
     authError: this.authFacade.error$,
   });
-
 
   onSubmit() {
     this.newUser = { ...this.registerForm.value };
@@ -68,6 +72,5 @@ export class RegisterFormComponent {
         console.error('Error checking email:', err);
       },
     });
-
   }
 }

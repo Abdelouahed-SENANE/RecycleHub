@@ -7,7 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { AuthFacade } from '../../auth/store/auth.facade';
-import { User } from '../../../models/user.model';
+import { User } from '../../../models/models';
 import {
   FormBuilder,
   FormGroup,
@@ -30,8 +30,8 @@ import { ModalComponent } from '../../../components/ui/modal/modal.component';
     ReactiveFormsModule,
     FieldErrorMessage,
     RouterModule,
-    DeleteUserComponent
-],
+    DeleteUserComponent,
+  ],
   template: `
     @if (vm$ | async; as vm) {
 
@@ -234,7 +234,7 @@ import { ModalComponent } from '../../../components/ui/modal/modal.component';
                 >
               </div>
             </div>
-              <app-delete-user></app-delete-user>
+            <app-delete-user></app-delete-user>
           </div>
         </form>
       </div>
@@ -249,7 +249,6 @@ export class UpdateProfileComponent implements OnInit {
   existsUser!: User;
   errorMsg!: string;
   updateProfileForm: FormGroup;
-  // @Output() openModalEvent : EventEmitter<void> = new EventEmitter<void>()
 
   constructor(private fb: FormBuilder) {
     this.updateProfileForm = this.fb.group({
@@ -289,8 +288,6 @@ export class UpdateProfileComponent implements OnInit {
   onSubmit() {
     this.userFacade.updateProfile(this.updateProfileForm.value);
   }
-
-
 
   ngOnInit(): void {}
 }

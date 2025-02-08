@@ -1,20 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { UserState } from './user.state';
+import { initialState, UserState } from './user.state';
 import { DeleteUserActions, UpdateProfileActions } from './user.actions';
-import { AuthState } from '../../auth/store/auth.state';
 
 export const USER_FEATURE_KEY = 'user';
 export interface AuthPartialState {
   readonly [USER_FEATURE_KEY]: UserState;
 }
 
-export const initialState: UserState = {
-  isLoading: false,
-  error: '',
-  success : '',
-  users: [],
-  
-};
+
 
 export const userReducer = createReducer(
   initialState,

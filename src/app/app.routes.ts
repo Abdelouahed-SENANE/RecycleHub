@@ -14,7 +14,7 @@ export const routes: Routes = [
           import('./routes/public/home/home.component').then(
             (c) => c.HomeComponent
           ),
-          data : {linksColor : 'text-white'}
+        data: { linksColor: 'text-white' },
       },
       {
         path: 'about',
@@ -22,8 +22,7 @@ export const routes: Routes = [
           import('./routes/public/about/about.component').then(
             (c) => c.AboutComponent
           ),
-          data : {linksColor : 'text-gray-800'}
-
+        data: { linksColor: 'text-gray-800' },
       },
       {
         path: 'contact-us',
@@ -31,7 +30,7 @@ export const routes: Routes = [
           import('./routes/public/contact-us/contact-us.component').then(
             (c) => c.ContactUsComponent
           ),
-          data : {linksColor : 'text-gray-800'}
+        data: { linksColor: 'text-gray-800' },
       },
     ],
   },
@@ -43,7 +42,7 @@ export const routes: Routes = [
   },
   {
     path: 'app',
-    canActivate: [],
+    canActivate: [authGuard],
     children: [
       {
         path: 'profile',
@@ -59,6 +58,27 @@ export const routes: Routes = [
             (c) => c.ProfileComponent
           ),
       },
+      {
+        path: '',
+        component: ContentLayoutComponent,
+        children: [
+          {
+            path: ':fullname/collections',
+            loadComponent: () =>
+              import('./routes/app/collections/collections.component').then(
+                (c) => c.CollectionsComponent
+              ),
+          },
+          {
+            path: ':fullname/offers',
+            loadComponent: () =>
+              import('./routes/app/collections/collections.component').then(
+                (c) => c.CollectionsComponent
+              ),
+          },
+        ],
+      },
+
     ],
   },
   { path: '**', redirectTo: '' },

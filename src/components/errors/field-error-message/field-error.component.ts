@@ -33,6 +33,7 @@ export class FieldErrorMessage {
           `Minimum length is ${this.control?.errors?.['minlength'].requiredLength} characters.`
         );
       }
+
     }
     return errors;
   }
