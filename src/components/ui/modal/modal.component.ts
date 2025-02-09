@@ -17,7 +17,7 @@ import { ModalConfig } from './modal.config';
         'block': open,
         'hidden': !open
       }"
-      class="fixed  inset-0"
+      class="fixed z-50  inset-0"
     >
       <div
         (click)="onDiscard()"

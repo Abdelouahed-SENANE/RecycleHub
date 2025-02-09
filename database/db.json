@@ -48,21 +48,37 @@
   ],
   "collections": [
     {
-      "id": "b2b5",
-      "wasteType": "GLASS",
-      "address": "19,SAFI",
-      "estimatedWeight": "10000",
-      "dateTime": "2024-02-24T09:00:00.000Z",
-      "collectorId": null
-    },
-    {
-      "id": "466ceca0-97a1-4039-8841-c5a838a8dbc7",
       "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
       "wasteType": "PLASTIC",
-      "address": "19,SAFI",
-      "estimatedWeight": "19944",
-      "dateTime": "2024-02-02T12:00:00.000Z",
-      "collectorId": null
+      "street": "Veritatis qui sit f",
+      "city": "CASA",
+      "estimatedWeight": "2000",
+      "dateTime": "2024-02-02T11:00:00.000Z",
+      "collectorId": null,
+      "id": "5157bde0-4b9d-4354-9f36-f02678994a77",
+      "status": "Occuped"
+    },
+    {
+      "id": "d6abd418-01fd-498e-a43a-6b286f33ab26",
+      "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
+      "wasteType": "PLASTIC",
+      "street": "Aliquid nihil rerum ",
+      "city": "Tenetur est rerum do",
+      "estimatedWeight": "2000",
+      "dateTime": "2024-02-02T13:00:00.000Z",
+      "collectorId": null,
+      "status": "Pending"
+    },
+    {
+      "id": "5bac5dce-62ca-40f2-befc-46768dc652e6",
+      "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
+      "wasteType": "METAL",
+      "street": "Iure autem neque vol",
+      "city": "SAFI",
+      "estimatedWeight": "1300",
+      "dateTime": "2024-02-02T10:00:00.000Z",
+      "collectorId": null,
+      "status": "Pending"
     }
   ]
 }
