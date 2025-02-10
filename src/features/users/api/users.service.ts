@@ -22,6 +22,16 @@ export class UserService {
       })
     );
   }
+  loadUserById(id: string): Observable<User> {
+    console.log("test ID " + id);
+    
+    return this.http.get<User>(`${env.apiUrl}users/${id}`).pipe(
+      catchError((err) => {
+        console.error('Error fetching user:', err);
+        return of(null as unknown as User);
+      })
+    );
+  }
 
   existByEmail(email: string): Observable<boolean> {
     const url = `${env.apiUrl}users?email=${encodeURIComponent(email)}`;

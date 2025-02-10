@@ -53,7 +53,7 @@ import { DropdownProfileComponent } from "../dropdown-profile/dropdown-profile.c
         @if(vm.currentUser?.role === "COLLECTOR") {
           <li class="mx-2">
           <a
-            [routerLink]="['/explore-collections']"
+            [routerLink]="['/app/explore-collections']"
             class="px-3 rounded-md py-1"
             routerLinkActive="bg-primary text-gray-50"
             [routerLinkActiveOptions]="{ exact: true }"

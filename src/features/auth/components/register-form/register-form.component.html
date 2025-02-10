@@ -1,16 +1,15 @@
 @if (vm$ | async; as vm) {
-  <form
+<form
   class="my-4 w-[390px]"
   [formGroup]="registerForm"
   (ngSubmit)="registerForm.valid && onSubmit()"
 >
-@if (this.errorMsg) {
-  <div class="text-rose-500  bg-rose-100 p-2 rounded-md">
+  @if (this.errorMsg) {
+  <div class="text-rose-500 bg-rose-100 p-2 rounded-md">
     <i class="bi bi-info-circle text-lg"></i>
-    <span class="px-2">{{errorMsg}}</span>
+    <span class="px-2">{{ errorMsg }}</span>
   </div>
-}
-
+  }
 
   <div class="my-4">
     <div class="form_control w-full text-gray-300 relative">
@@ -37,30 +36,58 @@
       [control]="registerForm.get('fullname')"
     ></app-fields-error-message>
   </div>
-  <div class="my-4">
-    <div class="form_control w-full text-gray-300 relative">
-      <span class="absolute top-[50%] translate-y-[-50%] left-4">
-        <i class="bi bi-geo-alt"></i>
-      </span>
-      <input
-        type="address"
-        placeholder="ex 19, rue benzarti, Safi"
-        formControlName="address"
-        [ngClass]="{
-          'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
-            registerForm.get('address')?.invalid &&
-            registerForm.get('address')?.touched,
-          'border-gray-300':
-            !registerForm.get('address')?.invalid ||
-            !registerForm.get('address')?.touched
-        }"
-        class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
-      />
+  <div class="flex items-center gap-1">
+    <div class="my-4">
+      <div class="form_control w-full text-gray-300 relative">
+        <span class="absolute top-[50%] translate-y-[-50%] left-4">
+          <i class="bi bi-geo-alt"></i>
+        </span>
+        <input
+          type="street"
+          placeholder="Street"
+          formControlName="street"
+          [ngClass]="{
+            'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+              registerForm.get('street')?.invalid &&
+              registerForm.get('street')?.touched,
+            'border-gray-300':
+              !registerForm.get('street')?.invalid ||
+              !registerForm.get('street')?.touched
+          }"
+          class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+        />
+      </div>
+      <app-fields-error-message
+        [label]="'Street'"
+        [control]="registerForm.get('street')"
+      ></app-fields-error-message>
     </div>
-    <app-fields-error-message
-      [label]="'Address'"
-      [control]="registerForm.get('address')"
-    ></app-fields-error-message>
+
+    <div class="my-4">
+      <div class="form_control w-full text-gray-300 relative">
+        <span class="absolute top-[50%] translate-y-[-50%] left-4">
+          <i class="bi bi-geo-alt"></i>
+        </span>
+        <input
+          type="city"
+          placeholder="City"
+          formControlName="city"
+          [ngClass]="{
+            'border-rose-500 focus:text-rose-500 focus:border-rose-500 ':
+              registerForm.get('city')?.invalid &&
+              registerForm.get('city')?.touched,
+            'border-gray-300':
+              !registerForm.get('city')?.invalid ||
+              !registerForm.get('city')?.touched
+          }"
+          class="pl-10 text-gray-500 focus:text-primary border-[3px] border-gray-100 focus:border-primary transition-colors ease-linear rounded-full placeholder:text-gray-300 w-full outline-none py-2 pr-2"
+        />
+      </div>
+      <app-fields-error-message
+        [label]="'City'"
+        [control]="registerForm.get('city')"
+      ></app-fields-error-message>
+    </div>
   </div>
   <div class="my-4">
     <div class="form_control w-full text-gray-300 relative">

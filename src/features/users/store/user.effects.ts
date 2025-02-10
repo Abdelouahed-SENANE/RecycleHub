@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { UserService } from '../api/users.service';
 import { catchError, exhaustMap, map, of } from 'rxjs';
-import { DeleteUserActions, UpdateProfileActions } from './user.actions';
+import { DeleteUserActions, EditUserActions, UpdateProfileActions } from './user.actions';
 import {
   LoginActions,
   LogoutAction,
@@ -14,7 +14,6 @@ import {
   providedIn: 'root',
 })
 export class UserEffects {
-  private readonly router: Router = inject(Router);
   private readonly actions$: Actions = inject(Actions);
   private readonly userService: UserService = inject(UserService);
 
@@ -47,10 +46,47 @@ export class UserEffects {
       )
     )
   );
+  readonly editPoints$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(EditUserActions.request),
+      exhaustMap(({ user }) =>
+        this.userService.updateProfile(user).pipe(
+          map((isUpdated) => {
+            if (isUpdated) {
+              return EditUserActions.success({
+                success: 'Points updated successfully.',
+                user: user,
+              });
+            } else {
+              return EditUserActions.failure({
+                error: 'Cannot update points',
+              });
+            }
+          }),
+          catchError((error) => {
+            console.error(error);
+            return of(
+              EditUserActions.failure({
+                error: 'An error occurred',
+              })
+            );
+          })
+        )
+      )
+    )
+  );
 
   readonly onUpdateProfileSuccess$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UpdateProfileActions.success),
+      map((action) => {
+        return UpdateAuthUserAction({ user: action.user });
+      })
+    )
+  );
+  readonly onEditUserSuccess$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(EditUserActions.success),
       map((action) => {
         return UpdateAuthUserAction({ user: action.user });
       })
@@ -79,6 +115,7 @@ export class UserEffects {
       })
     )
   );
+
 
   readonly onDeleteAccoutSuccess$ = createEffect(() =>
     this.actions$.pipe(

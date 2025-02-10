@@ -2,7 +2,11 @@ import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as UserSelectors from './user.selectors';
 import { User } from '../../../models/models';
-import { DeleteUserActions, UpdateProfileActions } from './user.actions';
+import {
+  DeleteUserActions,
+  EditUserActions,
+  UpdateProfileActions,
+} from './user.actions';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +21,10 @@ export class UserFacade {
 
   updateProfile(user: User): void {
     this.store.dispatch(UpdateProfileActions.request({ user }));
+  }
+
+  editUser(user: User): void {
+    this.store.dispatch(EditUserActions.request({ user }));
   }
 
   deleteAccount(userId: string): void {

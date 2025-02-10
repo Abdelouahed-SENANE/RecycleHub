@@ -72,10 +72,25 @@ export const routes: Routes = [
           {
             path: ':fullname/offers',
             loadComponent: () =>
-              import('./routes/app/collections/collections.component').then(
-                (c) => c.CollectionsComponent
+              import('./routes/app/offers/offers.component').then(
+                (c) => c.OffersComponent
               ),
           },
+          {
+            path: ':fullname/transactions',
+            loadComponent: () =>
+              import('./routes/app/transaction/transaction.component').then(
+                (c) => c.TransactionComponent
+              ),
+          },
+          {
+          path: 'explore-collections',
+            loadComponent: () =>
+              import('./routes/app/explore-collections/explore-collections.component').then(
+                (c) => c.ExploreCollectionsComponent
+              ),
+          },
+
         ],
       },
 

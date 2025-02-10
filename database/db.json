@@ -7,78 +7,31 @@
       "birthday": "2000-02-12",
       "email": "foudi@individual.fr",
       "password": "password",
-      "role": "INDIVIDUAL"
+      "role": "INDIVIDUAL",
+      "balance": 640,
+      "points": 0
     },
     {
       "id": "bd57c475-5189-4c17-bc3f-9cbefefa4312",
       "fullname": "Abdelouahed SENANE",
-      "address": "16, Rue ennacer , JEMAA SHAIM",
+      "street": "19 Rue Hassan II",
+      "city": "safi",
       "birthday": "1996-02-26",
       "email": "senane@collector.fr",
       "password": "password",
       "role": "COLLECTOR"
-    },
-    {
-      "id": "54e24167-9f87-4468-ba5e-2028c5849bcd",
-      "fullname": "Voluptates dolore mo",
-      "address": "Aut est commodi sit ",
-      "birthday": "1981-01-06",
-      "email": "tame@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "role": "INDIVIDUAL"
-    },
-    {
-      "id": "4a8f2710-716c-43d7-93d6-f7ebf1fd6ec4",
-      "fullname": "A earum ea omnis ut ",
-      "address": "Blanditiis quidem vo",
-      "birthday": "2013-06-01",
-      "email": "kagoxijyc@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "role": "INDIVIDUAL"
-    },
-    {
-      "id": "e620bffd-e381-480c-b509-47e95a55d9bb",
-      "fullname": "Consequatur aut do ",
-      "address": "19, Rue Hassan II,SAFI",
-      "birthday": "1976-03-21",
-      "email": "tated@mailinator.com",
-      "password": "Pa$$w0rd!",
-      "role": "INDIVIDUAL"
     }
   ],
   "collections": [
     {
+      "id": "86a5d761-78f7-47d6-b4d1-eb9a3e0d7819",
       "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
+      "street": "Hassan 2",
+      "city": "safi",
       "wasteType": "PLASTIC",
-      "street": "Veritatis qui sit f",
-      "city": "CASA",
-      "estimatedWeight": "2000",
-      "dateTime": "2024-02-02T11:00:00.000Z",
-      "collectorId": null,
-      "id": "5157bde0-4b9d-4354-9f36-f02678994a77",
-      "status": "Occuped"
-    },
-    {
-      "id": "d6abd418-01fd-498e-a43a-6b286f33ab26",
-      "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
-      "wasteType": "PLASTIC",
-      "street": "Aliquid nihil rerum ",
-      "city": "Tenetur est rerum do",
-      "estimatedWeight": "2000",
-      "dateTime": "2024-02-02T13:00:00.000Z",
-      "collectorId": null,
-      "status": "Pending"
-    },
-    {
-      "id": "5bac5dce-62ca-40f2-befc-46768dc652e6",
-      "ownerId": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
-      "wasteType": "METAL",
-      "street": "Iure autem neque vol",
-      "city": "SAFI",
-      "estimatedWeight": "1300",
-      "dateTime": "2024-02-02T10:00:00.000Z",
-      "collectorId": null,
-      "status": "Pending"
+      "estimatedWeight": "1200",
+      "status": "Accepted",
+      "dateTime": "2024-02-02T10:00:00.000Z"
     }
   ]
 }

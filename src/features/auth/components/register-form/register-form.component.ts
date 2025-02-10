@@ -37,11 +37,16 @@ export class RegisterFormComponent {
           Validators.maxLength(50),
         ],
       ],
-      address: [
+      street: [
         '',
         [
           Validators.required,
-          Validators.pattern(/^\d+\s*,\s*[a-zA-Z\s]+(,\s*[a-zA-Z\s]+)?$/),
+        ],
+      ],
+      city: [
+        '',
+        [
+          Validators.required,
         ],
       ],
       birthday: ['', [Validators.required]],
@@ -60,6 +65,8 @@ export class RegisterFormComponent {
     this.newUser = { ...this.registerForm.value };
     this.newUser.id = generateUUID();
     this.newUser.role = RoleType.INDIVIDUAL;
+    this.newUser.city = this.registerForm.get("city")?.value.toLocaleLowerCase()
+    
     this.userService.existByEmail(this.newUser.email).subscribe({
       next: (isExist) => {
         if (!isExist) {
