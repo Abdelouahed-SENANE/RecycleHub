@@ -1,17 +1,6 @@
 {
   "users": [
     {
-      "id": "5bc881ba-6f92-4215-b119-d4ae6cb53b2f",
-      "fullname": "Ahmed FOUDI",
-      "address": "16, Rue ennacer , JEMAA SHAIM",
-      "birthday": "2000-02-12",
-      "email": "foudi@individual.fr",
-      "password": "password",
-      "role": "INDIVIDUAL",
-      "balance": 640,
-      "points": 0
-    },
-    {
       "id": "bd57c475-5189-4c17-bc3f-9cbefefa4312",
       "fullname": "Abdelouahed SENANE",
       "street": "19 Rue Hassan II",
@@ -20,6 +9,17 @@
       "email": "senane@collector.fr",
       "password": "password",
       "role": "COLLECTOR"
+    },
+    {
+      "id": "8905be8c-8f31-4ab8-82fb-5ab6458de1fd",
+      "fullname": "Youssef Elrachidi",
+      "street": "Hassn II",
+      "city": "safi",
+      "birthday": "1994-02-08",
+      "email": "youssef@individue.fr",
+      "password": "password",
+      "role": "INDIVIDUAL",
+      "points": 4
     }
   ],
   "collections": [
@@ -32,6 +32,36 @@
       "estimatedWeight": "1200",
       "status": "Accepted",
       "dateTime": "2024-02-02T10:00:00.000Z"
+    },
+    {
+      "id": "bb9f5526-8992-44d2-93db-b3f5442bb003",
+      "ownerId": "8905be8c-8f31-4ab8-82fb-5ab6458de1fd",
+      "street": "Hassan II",
+      "city": "safi",
+      "wasteType": "PLASTIC",
+      "estimatedWeight": "2000",
+      "status": "Accepted",
+      "dateTime": "2024-02-02T09:00:00.000Z"
+    },
+    {
+      "id": "f1c671ad-fb73-4df3-a22d-8b15a76f57bd",
+      "ownerId": "8905be8c-8f31-4ab8-82fb-5ab6458de1fd",
+      "street": "Hassan II",
+      "city": "safi",
+      "wasteType": "GLASS",
+      "estimatedWeight": "13000",
+      "status": "Accepted",
+      "dateTime": "2024-02-02T09:00:00.000Z"
+    },
+    {
+      "id": "5056d8aa-b456-41b9-a038-41e64385e356",
+      "ownerId": "8905be8c-8f31-4ab8-82fb-5ab6458de1fd",
+      "street": "Quas aut id laboris ",
+      "city": "safi",
+      "wasteType": "PLASTIC",
+      "estimatedWeight": "1200",
+      "status": "In Progress",
+      "dateTime": "2024-02-02T12:00:00.000Z"
     }
   ]
 }

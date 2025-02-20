@@ -1,5 +1,4 @@
 import { ActivatedRouteSnapshot, createUrlTreeFromSnapshot, RouterStateSnapshot } from "@angular/router";
-import { routes } from "../../../app/app.routes";
 import { inject } from "@angular/core";
 import { AuthFacade } from "../store/auth.facade";
 import { map, take } from "rxjs";
